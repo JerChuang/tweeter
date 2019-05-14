@@ -34,9 +34,3 @@
 .new-tweet form{
   padding: 10px;
 }
-
-div.row::after {
-  content: "";
-  display: table;
-  clear: both;
-}

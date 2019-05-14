@@ -26,6 +26,8 @@ body {
  */
 
  main {
+  /* float: left; */
+  padding-top: 30px;
   margin: auto;
   margin-top: 140px;
   width: 450px;

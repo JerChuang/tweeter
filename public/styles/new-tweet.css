@@ -1,28 +1,38 @@
 .new-tweet {
-
-  /* float: left; */
+  float: left;
   margin: 0px 2em;
-  /* margin: 0 auto; */
   width: 386px;
-  border-radius: 5px;
+  border-radius: 5px; /*Per requirement - rounded corner for the form*/
   border: 1px solid rgb(204, 204, 204);
   background-color: #eee;
+  padding: 5px 0;
   
+}
+/* Per requirement - a solid line under "Compose Tweet" */
+.new-tweet h2 {
+  border-bottom: 1px solid black;
+  margin: 5px 10px;
+}
+/* per requirment - counter to the right */
+.new-tweet .counter {
+  margin: 5px 0;
+  float: right;
+}
+
+.new-tweet input {
+  margin: 5px 0;
+  float: left;
 }
 
 .new-tweet textarea {
+  float:left;
   width: 366px;
   height: 80px;
-  margin-left: 10px;
+  margin-left: 0 auto;
 }
 
-.new-tweet h2 {
-  border-bottom: 1px solid black;
-  margin: 10px;
-}
-
-.new-tweet .counter {
-  float: right;
+.new-tweet form{
+  padding: 10px;
 }
 
 div.row::after {

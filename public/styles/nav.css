@@ -8,6 +8,7 @@
   color: #e8fdff;
   background-color: #00a087;
   overflow: hidden;
+  z-index: 1
 }
 
 #nav-bar .logo {

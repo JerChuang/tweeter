@@ -2,41 +2,52 @@
   float: left;
   margin: 0px 2em;
   width: 386px;
-  border-radius: 5px; /*Per requirement - rounded corner for the form*/
-  border: 1px solid rgb(204, 204, 204);;
+  border-radius: 5px; 
   background-color: white;
   margin-top: 20px; 
 }
 
 .tweets article {
-  opacity: 0.5;
   height: 150px;
   padding-bottom: 50px;
   position: relative;
+  border: 1px solid rgb(104, 104, 104, 0.5);
+  border-radius: 5px; 
+  overflow: hidden;
 }
 
 .tweets article:hover {
+  border-color:rgb(104, 104, 104)
+}
+
+.tweets header {
+  opacity: 0.5;
+  padding-top: 0px;
+  background-color: #eee;
+  height: 60px;
+  width: 100%;
+  font-size: 150%;
+}
+
+.tweets article:hover header{
   opacity: 1;
 }
 
-
-.tweets .content{
-  opacity: 1;
-  padding: 1px 0;
-  vertical-align: middle;
+.tweets .handle {
+  float: right;
+  font-size: 14px;
+  color: rgb(109, 109, 109);
 }
-
 .tweets .avatar {
   float: left;
   width: 60px;
   height: 60px;
 }
 
-.tweets header {
-  padding-top: 0px;
-  background-color: #eee;
-  height: 60px;
-  font-size: 150%;
+.tweets .content{
+  opacity: 1;
+  padding: 1px 0;
+  vertical-align: middle;
 }
 
 .tweets footer {
@@ -45,10 +56,16 @@
   width: 100%;
   bottom: 0;
   opacity: 1;
+  
 }
 
-.tweets .handle{
-  float: right;
-  font-size: 14px;
-  color: rgb(109, 109, 109);
+.tweets .like {
+  width: 20px;
+  height: 20px;
+  visibility: hidden;
+  float :right;
+}
+
+.tweets article:hover .like {
+  visibility: visible;
 }

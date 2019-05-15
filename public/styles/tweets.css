@@ -36,6 +36,7 @@
 
 .tweets .handle {
   float: right;
+  margin-right: 5px;
   font-size: 14px;
   color: rgb(109, 109, 109);
 }

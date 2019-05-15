@@ -21,7 +21,7 @@ $(document).ready(function() {
       "content": {
         "text": "If I have seen further it is by standing on the shoulders of giants"
       },
-      "created_at": 1461116232227
+      "created_at": 1557935797394
     },
     {
       "user": {
@@ -64,25 +64,43 @@ $(document).ready(function() {
     }
   }
   
+  function getTimeSince(timecreated){
+    let time = new Date().valueOf() - timecreated;
+    if (time / (1000 * 60 * 60 * 24 * 365) > 1){
+      return `${Math.floor(time / (1000 * 60 * 60 * 24 * 365))} years ago`
+    } else if (time / (1000 * 60 * 60 * 24 * 7) > 1){
+      return `${Math.floor(time / (1000 * 60 * 60 * 24 * 7))} weeks ago`
+    } else if (time / (1000 * 60 * 60 * 24) > 1){
+      return `${Math.floor(time / (1000 * 60 * 60 * 24))} days ago`
+    } else if (time / (1000 * 60 * 60) > 1){
+      return `${Math.floor(time / (1000 * 60 * 60))} hours ago`
+    } else if (time / (1000 * 60) > 1){
+      return `${Math.floor(time / (1000 * 60))} minutes ago`
+    } else if (time / (1000) > 1){
+      return `${Math.floor(time / (1000 * 60))} seconds ago`
+    } else {
+      return 'just now'
+    }
+  }
 
-function createTweetElement(Object){
-  // Object.user.name = name in header
-  // Object.user.avatars.regular = avatar image in header
-  // Object.user.handle = handle in header
-  // Object.content.text = main text
-  // Object.created_at = created time
-  let $output = $('<article></article>');
-  let $header = $('<header></header>');
-  let $image = $(`<img class="avatar" src=${Object.user.avatars.regular} /> `)
-  let $handle = $('<span></span').addClass('handle').text(Object.user.handle);
-  let $content = $('<div></div>').addClass('content').text(Object.content.text);
-  let $footer = $('<footer></footer>').text(Object.created_at).append(`<img class="like" src="/images/heart.png" />`);
+  function createTweetElement(Object){
+    // Object.user.name = name in header
+    // Object.user.avatars.regular = avatar image in header
+    // Object.user.handle = handle in header
+    // Object.content.text = main text
+    // Object.created_at = created time
+    let $output = $('<article>');
+    let $header = $('<header>');
+    let $image = $(`<img class="avatar" src=${Object.user.avatars.regular} /> `)
+    let $handle = $('<span>').addClass('handle').text(Object.user.handle);
+    let $content = $('<div>').addClass('content').text(Object.content.text);
+    let $footer = $('<footer>').text(getTimeSince(Object.created_at)).append(`<img class="like" src="/images/heart.png" />`);
 
-  $output = $output.append($header.append($image).append(Object.user.name, $handle)).append($content).append($footer);
+    $output = $output.append($header.append($image).append(Object.user.name, $handle)).append($content).append($footer);
 
-return $output
-}
+  return $output
+  }
 
-renderTweets(data);
+  renderTweets(data);
 
 });

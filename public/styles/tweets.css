@@ -1,0 +1,54 @@
+.tweets {
+  float: left;
+  margin: 0px 2em;
+  width: 386px;
+  border-radius: 5px; /*Per requirement - rounded corner for the form*/
+  border: 1px solid rgb(204, 204, 204);;
+  background-color: white;
+  margin-top: 20px; 
+}
+
+.tweets article {
+  opacity: 0.5;
+  height: 150px;
+  padding-bottom: 50px;
+  position: relative;
+}
+
+.tweets article:hover {
+  opacity: 1;
+}
+
+
+.tweets .content{
+  opacity: 1;
+  padding: 1px 0;
+  vertical-align: middle;
+}
+
+.tweets .avatar {
+  float: left;
+  width: 60px;
+  height: 60px;
+}
+
+.tweets header {
+  padding-top: 0px;
+  background-color: #eee;
+  height: 60px;
+  font-size: 150%;
+}
+
+.tweets footer {
+  border-top: 1px solid rgb(204, 204, 204);;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  opacity: 1;
+}
+
+.tweets .handle{
+  float: right;
+  font-size: 14px;
+  color: rgb(109, 109, 109);
+}

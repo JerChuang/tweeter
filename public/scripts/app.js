@@ -55,15 +55,11 @@ $(document).ready(function() {
   ];
   
   function renderTweets(Data) {
-    // loops through tweets
-      // calls createTweetElement for each tweet
-      // takes return value and appends it to the tweets container
-
-     for (object of Data) {
+    for (object of Data) {
       $('.tweets').append(createTweetElement(object))
     }
   }
-  
+  // function to figure out how long since tweet created
   function getTimeSince(timecreated){
     let time = new Date().valueOf() - timecreated;
     if (time / (1000 * 60 * 60 * 24 * 365) > 1){
@@ -84,23 +80,41 @@ $(document).ready(function() {
   }
 
   function createTweetElement(Object){
-    // Object.user.name = name in header
-    // Object.user.avatars.regular = avatar image in header
-    // Object.user.handle = handle in header
-    // Object.content.text = main text
-    // Object.created_at = created time
     let $output = $('<article>');
     let $header = $('<header>');
     let $image = $(`<img class="avatar" src=${Object.user.avatars.regular} /> `)
     let $handle = $('<span>').addClass('handle').text(Object.user.handle);
     let $content = $('<div>').addClass('content').text(Object.content.text);
     let $footer = $('<footer>').text(getTimeSince(Object.created_at)).append(`<img class="like" src="/images/heart.png" />`);
+    
+    $header = $header.append($image).append(Object.user.name, $handle)
+    $output = $output.append($header).append($content).append($footer);
 
-    $output = $output.append($header.append($image).append(Object.user.name, $handle)).append($content).append($footer);
-
-  return $output
+    return $output
   }
 
   renderTweets(data);
+
+
+  // $('.newTweet form').submit(function(event){
+  //   event.preventDefault();
+
+  // });
+
+  // $(function() {
+  //   var $button = $('#load-more-posts');
+  //   $button.on('click', function () {
+  //     console.log('Button clicked, performing ajax call...');
+  //     $.ajax('more-posts.html', { method: 'GET' })
+  //     .then(function (morePostsHtml) {
+  //       console.log('Success: ', morePostsHtml);
+  //       $button.replaceWith(morePostsHtml);
+  //     });
+  //   });
+  // });
+
+
+
+
 
 });

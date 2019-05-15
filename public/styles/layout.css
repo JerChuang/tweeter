@@ -32,6 +32,7 @@ body {
   margin-top: 140px;
   width: 450px;
   background-color: #FFFFFF;
+  overflow: hidden;
  }
 
  /* Make the <main> element:

@@ -20,17 +20,12 @@ $(document).ready(function() {
         $('.tweets').prepend(createTweetElement(Data[index]))
       }
     }
-    
   }
 
   // function to figure out how long since tweet created
   function getTimeSince(timecreated){
     let time = 0; //clear variable in case of pollution;
     time = new Date().valueOf() - timecreated;
-    console.log("time elasped", time);
-    console.log("new Date().valueOf()", new Date().valueOf());
-    console.log("Date.now()", Date.now());
-    console.log("time created", timecreated);
     if (time / (1000 * 60 * 60 * 24 * 365) > 1){
       return `${Math.floor(time / (1000 * 60 * 60 * 24 * 365))} years ago`
     } else if (time / (1000 * 60 * 60 * 24 * 7) > 1){
@@ -49,18 +44,21 @@ $(document).ready(function() {
   }
 
   function createTweetElement(Object){
-    let $output = $('<article>');
-    let $header = $('<header>');
     let $image = $(`<img class="avatar" src=${Object.user.avatars.regular} /> `)
     let $handle = $('<span>').addClass('handle').text(Object.user.handle);
     let $content = $('<div>').addClass('content').text(Object.content.text);
-    let $footer = $('<footer>').text(getTimeSince(Object.created_at)).append(`<img class="like" src="/images/heart.png" />`);
+    let $like = $(`<img class="like" src="/images/heart.png" />`);
+    let $flag = $(`<img class="flag" src="/images/flag.png" />`);
+    let $time = $('<span>').text(getTimeSince(Object.created_at));
     
-    $header = $header.append($image).append(Object.user.name, $handle)
-    $output = $output.append($header).append($content).append($footer);
+    let $footer = $('<footer>').append($time).append($flag).append($like);
+    let $header = $('<header>').append($image).append(Object.user.name, $handle)
+    let $output = $('<article>').append($header).append($content).append($footer);
 
     return $output
   }
+
+  
   
   $('section.new-tweet form').on('submit', function(event){
     event.preventDefault();

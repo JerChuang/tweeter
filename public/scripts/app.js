@@ -10,9 +10,19 @@ $(document).ready(function() {
 
   function renderTweets(Data) {
     for (object of Data) {
-      $('.tweets').append(createTweetElement(object))
+      $('.tweets').prepend(createTweetElement(object))
     }
   }
+
+  function renderNewTweet(Data) {
+    for (index in Data) {
+      if (Number(index) === (Data.length - 1)){
+        $('.tweets').prepend(createTweetElement(Data[index]))
+      }
+    }
+    
+  }
+
   // function to figure out how long since tweet created
   function getTimeSince(timecreated){
     let time = new Date().valueOf() - timecreated;
@@ -50,6 +60,7 @@ $(document).ready(function() {
   $('section.new-tweet form').on('submit', function(event){
     event.preventDefault();
     let content = $(this).serialize();
+    //error messages for empty field or over char limit
     if (!content.slice(5)){
       window.alert('Please enter a message!')
       return;
@@ -59,10 +70,20 @@ $(document).ready(function() {
       window.alert('tweets must be under 140 char')
       return;
     }
-    
-    $.post('/tweets', content);
+
+    //posting content to /tweets
+    $.post('/tweets', content, function(){  // on post success, send get request to /tweets to fetch latest object using renderNewTweet
+      $.ajax({
+        url: '/tweets',
+        method: 'GET',
+        dataType: 'json',
+        success: renderNewTweet,
+        failure: function() {
+          console.log("error");
+        }
+      });
+    });
     this.reset();
-    loadTweets()
   });
   
   function loadTweets(){

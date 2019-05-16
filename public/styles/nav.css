@@ -8,13 +8,18 @@
   color: #e8fdff;
   background-color: #00a087;
   overflow: hidden;
-  z-index: 1
+  z-index: 1;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #nav-bar .logo {
   float: left;
   width: 80px;
   height: 80px;
+  flex-grow: 0;
 }
 
 #nav-bar .header {
@@ -23,4 +28,29 @@
   margin-left: 10px;
   font-size: 2em;
   line-height: 80px;
+  flex-grow: 1;
+}
+
+#nav-bar .compose {
+  float: right;
+  display: block;
+  height: 60px;
+  width: 100px;
+  line-height: 40px;
+  border: 1px solid black;
+  border-radius: 5px;
+  flex-grow: 0;
+  color: #00a087;
+  font-size: 20px;
+  background-color: #dcfffa;
+}
+
+#nav-bar .compose:hover {
+  color: black;
+  background-color: white;
+}
+
+#nav-bar .compose:active {
+  color: black;
+  background-color: white;
 }

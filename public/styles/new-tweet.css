@@ -21,6 +21,7 @@
 
 .new-tweet input {
   margin: 5px 0;
+  margin-right: 5px;
   float: left;
 }
 
@@ -29,6 +30,9 @@
   width: 366px;
   height: 80px;
   margin-left: 0 auto;
+}
+.new-tweet .error{
+  color: red;
 }
 
 .new-tweet form{

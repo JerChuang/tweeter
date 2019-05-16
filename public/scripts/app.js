@@ -13,8 +13,8 @@ $(document).ready(function() {
       $('.tweets').prepend(createTweetElement(object))
     }
   }
-
-  function renderNewTweet(Data) {
+  //function to fetch only the last entry in Data
+  function renderNewTweet(Data) {   
     for (index in Data) {
       if (Number(index) === (Data.length - 1)){
         $('.tweets').prepend(createTweetElement(Data[index]))
@@ -60,14 +60,19 @@ $(document).ready(function() {
   $('section.new-tweet form').on('submit', function(event){
     event.preventDefault();
     let content = $(this).serialize();
-    //error messages for empty field or over char limit
-    if (!content.slice(5)){
-      window.alert('Please enter a message!')
-      return;
-    }
+    // Check for errors and display error messages for empty field or over char limit
     let count = Number($('section.new-tweet span.counter').text());
-    if ( count < 0) {
-      window.alert('tweets must be under 140 char')
+    
+    $('.new-tweet span.error').slideUp(function(){   //Displaying error messages inside callback function for slideup to make sure animation finish before new animation starts.
+      if (!content.slice(5)){
+        $('.new-tweet span.error').slideDown().text('Please enter a message!')
+      }
+      if ( count < 0) {
+        $('.new-tweet span.error').slideDown().text(`You've exceeded the limit of 140 characters`)
+      }  
+    });
+      
+    if (!content.slice(5) || count <0){  //return the submit callback function if error, so tweet doesn't get posted
       return;
     }
 

@@ -25,7 +25,12 @@ $(document).ready(function() {
 
   // function to figure out how long since tweet created
   function getTimeSince(timecreated){
-    let time = new Date().valueOf() - timecreated;
+    let time = 0; //clear variable in case of pollution;
+    time = new Date().valueOf() - timecreated;
+    console.log("time elasped", time);
+    console.log("new Date().valueOf()", new Date().valueOf());
+    console.log("Date.now()", Date.now());
+    console.log("time created", timecreated);
     if (time / (1000 * 60 * 60 * 24 * 365) > 1){
       return `${Math.floor(time / (1000 * 60 * 60 * 24 * 365))} years ago`
     } else if (time / (1000 * 60 * 60 * 24 * 7) > 1){
@@ -105,9 +110,4 @@ $(document).ready(function() {
 
   loadTweets();
  
-
-
-
-
-
 });

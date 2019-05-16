@@ -13,7 +13,7 @@ $(document).ready(function() {
       $('.tweets').prepend(createTweetElement(object))
     }
   }
-  //function to fetch only the last entry in Data
+  //new function added to fetch only the last entry in Data
   function renderNewTweet(Data) {   
     for (index in Data) {
       if (Number(index) === (Data.length - 1)){

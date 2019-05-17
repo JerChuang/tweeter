@@ -1,14 +1,15 @@
+// Main JS file for creating tweets
 // Making sure all DOM manipulation happens after DOM is ready
 $(document).ready(function() {
   //function to fetch all tweets in database and add inside the .tweets container
   function renderTweets(Data) {
-    for (object of Data) {
+    for (let object of Data) {
       $('.tweets').prepend(createTweetElement(object))
     }
   }
   //function to fetch only the last entry in database and add to top of the contents inside .tweets container
   function renderNewTweet(Data) {   
-    for (index in Data) {
+    for (let index in Data) {
       if (Number(index) === (Data.length - 1)){
         $('.tweets').prepend(createTweetElement(Data[index]))
       }
@@ -41,10 +42,9 @@ $(document).ready(function() {
     let $image = $(`<img class='avatar' src=${Object.user.avatars.regular} /> `)
     let $handle = $('<span>').addClass('handle').text(Object.user.handle);
     let $content = $('<div>').addClass('content').text(Object.content.text);
-    let $like = $(`<img class='like' src='/images/heart.png' />`);
+    let $like = $(`<img class='like' src='/images/heart.png' />`).data('liked', false);
     let $flag = $(`<img class='flag' src='/images/flag.png' />`);
     let $time = $('<span>').text(getTimeSince(Object.created_at));
-    
     let $footer = $('<footer>').append($time).append($flag).append($like);
     let $header = $('<header>').append($image).append(Object.user.name, $handle)
     let $output = $('<article>').append($header).append($content).append($footer);
@@ -101,5 +101,5 @@ $(document).ready(function() {
   }
 
   loadTweets();
- 
+  
 });

@@ -42,17 +42,23 @@ $(document).ready(function() {
     let $image = $(`<img class='avatar' src=${Object.user.avatars.regular} /> `)
     let $handle = $('<span>').addClass('handle').text(Object.user.handle);
     let $content = $('<div>').addClass('content').text(Object.content.text);
-    let $like = $(`<img class='like' src='/images/heart.png' />`);
+    //image for like button is dependent on Object.liked
+    let $like = $('')
+    if (!Object.liked){
+      $like = $(`<img class='like' src='/images/heart.png' />`);
+    } else if(Object.liked){
+      $like = $(`<img class='like' src='/images/redHeart.png' />`);
+    }
     let $flag = $(`<img class='flag' src='/images/flag.png' />`);
     let $time = $('<span>').text(getTimeSince(Object.created_at));
-    
+
     let $footer = $('<footer>').append($time).append($flag).append($like);
     let $header = $('<header>').append($image).append(Object.user.name, $handle)
 
     let $output = $('<article>').append($header).append($content).append($footer);
 
     let dataAttr = { //Object for data attribute 
-      liked: false,
+      liked: Object.liked,
       likes: Object.likes,
       postID: Object._id,
       userHandle: Object.user.handle
@@ -93,7 +99,7 @@ $(document).ready(function() {
         }
       });
     });
-    this.reset();
+    this.reset(); //clears form
   });
   
   // function to load all tweets in database on page load, call renderTweets on success to fetch all tweets

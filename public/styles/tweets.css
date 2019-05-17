@@ -67,6 +67,15 @@
 .tweets footer span{
   flex-grow: 1;
 }
+
+.tweets footer span.likeCount{
+  flex-grow: 0;
+  visibility: hidden;
+}
+
+.tweets article:hover .likeCount {
+  visibility: visible;
+}
 .tweets .flag {
   width:  45px;
   height: 20px;

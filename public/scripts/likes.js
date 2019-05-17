@@ -13,8 +13,7 @@ $(document).ready(function() {
       info.liked  = false;
       info.likes -= 1;
     }
-
-   
+    $(this).siblings('span.likeCount').text(info.likes);
     $.post(`/tweets/${info.postID}`, { postID: info.postID, liked: info.liked, likes: info.likes });
 
   })

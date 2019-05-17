@@ -51,8 +51,8 @@ $(document).ready(function() {
     }
     let $flag = $(`<img class='flag' src='/images/flag.png' />`);
     let $time = $('<span>').text(getTimeSince(Object.created_at));
-
-    let $footer = $('<footer>').append($time).append($flag).append($like);
+    let $likeCount = $('<span>').addClass('likeCount');
+    let $footer = $('<footer>').append($time).append($flag).append($like).append($likeCount);//adding span for likes counter
     let $header = $('<header>').append($image).append(Object.user.name, $handle)
 
     let $output = $('<article>').append($header).append($content).append($footer);

@@ -42,13 +42,22 @@ $(document).ready(function() {
     let $image = $(`<img class='avatar' src=${Object.user.avatars.regular} /> `)
     let $handle = $('<span>').addClass('handle').text(Object.user.handle);
     let $content = $('<div>').addClass('content').text(Object.content.text);
-    let $like = $(`<img class='like' src='/images/heart.png' />`).data('liked', false);
+    let $like = $(`<img class='like' src='/images/heart.png' />`);
     let $flag = $(`<img class='flag' src='/images/flag.png' />`);
     let $time = $('<span>').text(getTimeSince(Object.created_at));
+    
     let $footer = $('<footer>').append($time).append($flag).append($like);
     let $header = $('<header>').append($image).append(Object.user.name, $handle)
+
     let $output = $('<article>').append($header).append($content).append($footer);
 
+    let dataAttr = { //Object for data attribute 
+      liked: false,
+      likes: Object.likes,
+      postID: Object._id,
+      userHandle: Object.user.handle
+    }
+    $output.data(dataAttr); //setting data attribute
     return $output
   }
 

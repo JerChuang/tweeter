@@ -2,16 +2,16 @@
 // check data attribute 'liked' - if true - do not update data, return to false state - green heart
 //                                if false - update data, switch to true state - red heart
 $(document).ready(function() {
-  
+    
   $('.tweets').on('click','.like', function(){
-    if(!$(this).data().liked){
+    let info = $(this).parent().parent().data();
+    console.log(info);
+    if(!info.liked){
       $(this).attr('src','/images/redHeart.png');
-      $(this).data('liked',true);
-    } else if ($(this).data().liked){
+      info.liked = true;
+    } else if (info.liked){
       $(this).attr('src','/images/heart.png');
-      $(this).data('liked',false);
+      info.liked  = false;
     }
-
-
    })
 });

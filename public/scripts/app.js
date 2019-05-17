@@ -1,19 +1,12 @@
-/* eslint-disable no-console */
-/* eslint-disable no-undef */
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+// Making sure all DOM manipulation happens after DOM is ready
 $(document).ready(function() {
-  // --- our code goes here ---
-
+  //function to fetch all tweets in database and add inside the .tweets container
   function renderTweets(Data) {
     for (object of Data) {
       $('.tweets').prepend(createTweetElement(object))
     }
   }
-  //new function added to fetch only the last entry in Data
+  //function to fetch only the last entry in database and add to top of the contents inside .tweets container
   function renderNewTweet(Data) {   
     for (index in Data) {
       if (Number(index) === (Data.length - 1)){
@@ -43,12 +36,13 @@ $(document).ready(function() {
     }
   }
 
+  //function to assemble a tweet's html structure, calling getTimeSince for elapsed time
   function createTweetElement(Object){
-    let $image = $(`<img class="avatar" src=${Object.user.avatars.regular} /> `)
+    let $image = $(`<img class='avatar' src=${Object.user.avatars.regular} /> `)
     let $handle = $('<span>').addClass('handle').text(Object.user.handle);
     let $content = $('<div>').addClass('content').text(Object.content.text);
-    let $like = $(`<img class="like" src="/images/heart.png" />`);
-    let $flag = $(`<img class="flag" src="/images/flag.png" />`);
+    let $like = $(`<img class='like' src='/images/heart.png' />`);
+    let $flag = $(`<img class='flag' src='/images/flag.png' />`);
     let $time = $('<span>').text(getTimeSince(Object.created_at));
     
     let $footer = $('<footer>').append($time).append($flag).append($like);
@@ -58,8 +52,7 @@ $(document).ready(function() {
     return $output
   }
 
-  
-  
+  //Posting tweet on submit
   $('section.new-tweet form').on('submit', function(event){
     event.preventDefault();
     let content = $(this).serialize();
@@ -76,11 +69,11 @@ $(document).ready(function() {
     });
       
     if (!content.slice(5) || count <0){  //return the submit callback function if error, so tweet doesn't get posted
-      return;
+      return
     }
 
     //posting content to /tweets
-    $.post('/tweets', content, function(){  // on post success, send get request to /tweets to fetch latest object using renderNewTweet
+    $.post('/tweets', content, function(){  // on post success, call renderNewTweet to fetch latest tweet
       $.ajax({
         url: '/tweets',
         method: 'GET',
@@ -94,6 +87,7 @@ $(document).ready(function() {
     this.reset();
   });
   
+  // function to load all tweets in database on page load, call renderTweets on success to fetch all tweets
   function loadTweets(){
     $.ajax({
       url: '/tweets',

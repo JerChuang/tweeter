@@ -1,18 +1,17 @@
 .new-tweet {
   float: left;
   margin: 0px 2em;
-  width: 386px;
-  border-radius: 5px; /*Per requirement - rounded corner for the form*/
+  border-radius: 5px; 
   border: 1px solid rgb(204, 204, 204);
   background-color: #eee;
   padding: 5px 0;
 }
-/* Per requirement - a solid line under "Compose Tweet" */
+
 .new-tweet h2 {
   border-bottom: 1px solid black;
   margin: 5px 10px;
 }
-/* per requirment - counter to the right */
+
 .new-tweet .counter {
   margin: 5px 0;
   float: right;
@@ -28,7 +27,6 @@
   float:left;
   width: 366px;
   height: 80px;
-  margin-left: 0 auto;
 }
 .new-tweet .error{
   color: red;

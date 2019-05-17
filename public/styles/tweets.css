@@ -1,19 +1,14 @@
 .tweets {
   float: left;
   margin: 0px 2em;
-  width: 386px;
-  border-radius: 5px; 
-  background-color: white;
   margin-top: 20px; 
 }
 
 .tweets article {
   height: 150px;
-  padding-bottom: 50px;
   position: relative;
   border: 1px solid rgb(104, 104, 104, 0.5);
   border-radius: 5px; 
-  overflow: hidden;
   margin-bottom: 10px;
 }
 
@@ -23,10 +18,8 @@
 
 .tweets header {
   opacity: 0.5;
-  padding-top: 0px;
   background-color: #eee;
   height: 60px;
-  width: 100%;
   font-size: 150%;
 }
 
@@ -47,9 +40,7 @@
 }
 
 .tweets .content{
-  opacity: 1;
-  padding: 1px 0;
-  vertical-align: middle;
+  padding: 2px;
 }
 
 .tweets footer {
@@ -57,21 +48,16 @@
   position: absolute;
   width: 100%;
   bottom: 0;
-  opacity: 1;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  
 }
 
 .tweets .like {
   width: 15px;
   height: 15px;
-  visibility: hidden;
-  float :right;
-  flex-grow: 0;
   margin-left: 7px;
   margin-right: 5px;
+  visibility: hidden;
 }
 
 .tweets article:hover .like {
@@ -85,7 +71,6 @@
   width:  45px;
   height: 20px;
   visibility: hidden;
-  float :right;
 }
 
 .tweets article:hover .flag {

@@ -18,5 +18,5 @@ This repository is the starter code for the project: Students will fork and clon
 
 ##Screenshots
 
-!["Screenshot of tweet compose box"] (https://github.com/JerChuang/tweeter/blob/master/public/images/new-tweet.png?raw=true)
-!["Screenshot of tweets"] (https://github.com/JerChuang/tweeter/blob/master/public/images/tweet.png?raw=true)
+!["Screenshot of tweet compose box"](https://github.com/JerChuang/tweeter/blob/master/public/images/new-tweet.png?raw=true)
+!["Screenshot of tweets"](https://github.com/JerChuang/tweeter/blob/master/public/images/tweet.png?raw=true)

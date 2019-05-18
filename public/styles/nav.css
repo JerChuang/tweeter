@@ -1,7 +1,6 @@
-#nav-bar{
+#nav-bar {
   position: fixed;
   display: flex;
-  top: 0px;
   width: 100%;
   height: 80px;
   padding: 0em 2em;
@@ -10,18 +9,15 @@
   align-items: center;
   z-index: 1;
 }
-
 #nav-bar .logo {
-  width: 80px;
-  height: 80px;
+  width: 10vw;
+  height: 10vw;
 }
-
 #nav-bar .header {
   margin-left: 10px;
   font-size: 2em;
   flex-grow: 1;
 }
-
 #nav-bar .compose {
   height: 60px;
   width: 100px;
@@ -31,8 +27,9 @@
   font-size: 20px;
   background-color: #dcfffa;
 }
-
 #nav-bar .compose:hover {
   color: black;
   background-color: white;
 }
+
+/*# sourceMappingURL=nav.css.map */

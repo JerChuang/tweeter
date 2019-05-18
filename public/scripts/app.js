@@ -4,14 +4,14 @@ $(document).ready(function() {
   //function to fetch all tweets in database and add inside the .tweets container
   function renderTweets(Data) {
     for (let object of Data) {
-      $('.tweets').prepend(createTweetElement(object))
+      $('.tweets').prepend(createTweetElement(object));
     }
   }
   //function to fetch only the last entry in database and add to top of the contents inside .tweets container
   function renderNewTweet(Data) {   
     for (let index in Data) {
       if (Number(index) === (Data.length - 1)){
-        $('.tweets').prepend(createTweetElement(Data[index]))
+        $('.tweets').prepend(createTweetElement(Data[index]));
       }
     }
   }
@@ -21,19 +21,19 @@ $(document).ready(function() {
     let time = 0; //clear variable in case of pollution;
     time = new Date().valueOf() - timecreated;
     if (time / (1000 * 60 * 60 * 24 * 365) > 1){
-      return `${Math.floor(time / (1000 * 60 * 60 * 24 * 365))} years ago`
+      return `${Math.floor(time / (1000 * 60 * 60 * 24 * 365))} years ago`;
     } else if (time / (1000 * 60 * 60 * 24 * 7) > 1){
-      return `${Math.floor(time / (1000 * 60 * 60 * 24 * 7))} weeks ago`
+      return `${Math.floor(time / (1000 * 60 * 60 * 24 * 7))} weeks ago`;
     } else if (time / (1000 * 60 * 60 * 24) > 1){
-      return `${Math.floor(time / (1000 * 60 * 60 * 24))} days ago`
+      return `${Math.floor(time / (1000 * 60 * 60 * 24))} days ago`;
     } else if (time / (1000 * 60 * 60) > 1){
-      return `${Math.floor(time / (1000 * 60 * 60))} hours ago`
+      return `${Math.floor(time / (1000 * 60 * 60))} hours ago`;
     } else if (time / (1000 * 60) > 1){
-      return `${Math.floor(time / (1000 * 60))} minutes ago`
+      return `${Math.floor(time / (1000 * 60))} minutes ago`;
     } else if (time / (1000) > 1){
-      return `${Math.floor(time / 1000)} seconds ago`
+      return `${Math.floor(time / 1000)} seconds ago`;
     } else {
-      return 'just now'
+      return 'just now';
     }
   }
 
@@ -43,7 +43,7 @@ $(document).ready(function() {
     let $handle = $('<span>').addClass('handle').text(Object.user.handle);
     let $content = $('<div>').addClass('content').text(Object.content.text);
     //image for like button is dependent on Object.liked
-    let $like = $('')
+    let $like = $('');
     if (!Object.liked){
       $like = $(`<img class='like' src='/images/heart.png' />`);
     } else if(Object.liked){
@@ -52,8 +52,8 @@ $(document).ready(function() {
     let $flag = $(`<img class='flag' src='/images/flag.png' />`);
     let $time = $('<span>').text(getTimeSince(Object.created_at));
     let $likeCount = $('<span>').addClass('likeCount');
-    let $footer = $('<footer>').append($time).append($flag).append($like).append($likeCount);//adding span for likes counter
-    let $header = $('<header>').append($image).append(Object.user.name, $handle)
+    let $footer = $('<footer>').append($time).append($flag).append($like).append($likeCount);
+    let $header = $('<header>').append($image).append(Object.user.name, $handle);
 
     let $output = $('<article>').append($header).append($content).append($footer);
 
@@ -64,7 +64,7 @@ $(document).ready(function() {
       userHandle: Object.user.handle
     }
     $output.data(dataAttr); //setting data attribute
-    return $output
+    return $output;
   }
 
   //Posting tweet on submit
@@ -84,7 +84,7 @@ $(document).ready(function() {
     });
       
     if (!content.slice(5) || count <0){  //return the submit callback function if error, so tweet doesn't get posted
-      return
+      return;
     }
 
     //posting content to /tweets

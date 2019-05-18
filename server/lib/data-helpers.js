@@ -11,6 +11,7 @@ module.exports = function makeDataHelpers(db) {
       db.collection('tweets').insertOne(newTweet);
       callback(null, true);  
     },
+
     getTweets: function(callback) {
       db.collection('tweets').find().toArray((err, tweets) => {
         if (err) {
@@ -19,9 +20,9 @@ module.exports = function makeDataHelpers(db) {
         callback(null, tweets);
       });
     },
+    
     updateTweet: function (data, callback){
-      db.collection('tweets').updateOne({_id: ObjectID(data.postID)}, {$set: {liked: (data.liked=="true"), likes: data.likes}})
-      
+      db.collection('tweets').updateOne({_id: ObjectID(data.postID)}, {$set: {liked: (data.liked=="true"), likes: data.likes}})   
       callback(null, true);
     }
  

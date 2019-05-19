@@ -1,36 +1,37 @@
 .tweets {
+  float: left;
   margin: 0px 2em;
-  margin-top: 1em;
+  margin-top: 20px; 
 }
-.tweets article:hover {
-  border-color: #686868;
-}
-.tweets article:hover header {
-  opacity: 1;
-}
-.tweets article:hover .like {
-  visibility: visible;
-}
-.tweets article:hover .likeCount {
-  visibility: visible;
-}
-.tweets article:hover .flag {
-  visibility: visible;
-}
+
 .tweets article {
   height: 150px;
-  border: 1px solid rgba(104, 104, 104, 0.5);
-  border-radius: 5px;
-  margin-bottom: 1em;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  border: 1px solid rgb(104, 104, 104, 0.5);
+  border-radius: 5px; 
+  margin-bottom: 10px;
 }
+
+.tweets article:hover {
+  border-color:rgb(104, 104, 104)
+}
+
 .tweets header {
   opacity: 0.5;
   background-color: #eee;
   height: 60px;
   font-size: 150%;
-  display: flex;
+}
+
+.tweets article:hover header{
+  opacity: 1;
+}
+
+.tweets .handle {
+  float: right;
+  margin-right: 5px;
+  font-size: 14px;
+  color: rgb(109, 109, 109);
 }
 .tweets .avatar {
   float: left;
@@ -38,28 +39,19 @@
   height: 60px;
 }
 
-.tweets header span {
-  flex-grow: 1;
+.tweets .content{
+  padding: 2px;
 }
 
-.tweets .handle {
-  float: right;
-  margin-right: 5px;
-  font-size: 14px;
-  color: #6d6d6d;
-  flex-grow: 0;
-}
-.tweets .content {
-  padding: 2px;
-  height: 5em;
-}
 .tweets footer {
-  border-top: 1px solid #cccccc;
+  border-top: 1px solid rgb(204, 204, 204);;
+  position: absolute;
   width: 100%;
   bottom: 0;
   display: flex;
   align-items: center;
 }
+
 .tweets .like {
   width: 15px;
   height: 15px;
@@ -67,17 +59,29 @@
   margin-right: 5px;
   visibility: hidden;
 }
-.tweets footer span {
+
+.tweets article:hover .like {
+  visibility: visible;
+}
+
+.tweets footer span{
   flex-grow: 1;
 }
-.tweets span.likeCount {
+
+.tweets footer span.likeCount{
   flex-grow: 0;
   visibility: hidden;
 }
+
+.tweets article:hover .likeCount {
+  visibility: visible;
+}
 .tweets .flag {
-  width: 45px;
+  width:  45px;
   height: 20px;
   visibility: hidden;
 }
 
-/*# sourceMappingURL=tweets.css.map */
+.tweets article:hover .flag {
+  visibility: visible;
+}

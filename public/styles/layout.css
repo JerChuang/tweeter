@@ -15,9 +15,7 @@ html {
  */
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0;
   color: #244751;
   background-color: #eee;
   font-family: 'Roboto Condensed', sans-serif;
@@ -28,12 +26,12 @@ body {
  */
 
  main {
-  display: flex;
-  flex-direction: column;
   width: 450px;
+  margin: auto;
   margin-top: 80px;
   padding-top: 30px;
   background-color: #FFFFFF;
+  overflow: hidden;
  }
 
  /* Make the <main> element:

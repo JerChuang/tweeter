@@ -1,6 +1,6 @@
 // count number of characters in textarea, change color counter if exceeding 140 limit
 $(document).ready(function() {
-  $(`.new-tweet textarea[name = 'text']`).on('keyup', function () {
+  $(`.new-tweet textarea[name = 'text']`).on('input', function () {
     let count = 140 - $(this).val().length;
     $(this).siblings('.counter').text(count);
     if (count < 0){

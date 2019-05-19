@@ -7,11 +7,11 @@ $(document).ready(function() {
     if(!info.liked){
       $(this).attr('src','/images/redHeart.png');
       info.liked = true;
-      info.likes ++;
+      info.likes += 1;
     } else if (info.liked){
       $(this).attr('src','/images/heart.png');
       info.liked  = false;
-      info.likes --;
+      info.likes -= 1;
     }
     $(this).siblings('span.likeCount').text(info.likes);
 

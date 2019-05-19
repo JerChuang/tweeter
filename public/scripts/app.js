@@ -40,7 +40,6 @@ $(document).ready(function() {
   //function to assemble a tweet's html structure, calling getTimeSince for elapsed time
   function createTweetElement(Object){
     let $image = $(`<img class='avatar' src=${Object.user.avatars.regular} /> `)
-    let $name = $('<span>').text(Object.user.name)
     let $handle = $('<span>').addClass('handle').text(Object.user.handle);
     let $content = $('<div>').addClass('content').text(Object.content.text);
     //image for like button is dependent on Object.liked
@@ -54,7 +53,7 @@ $(document).ready(function() {
     let $time = $('<span>').text(getTimeSince(Object.created_at));
     let $likeCount = $('<span>').addClass('likeCount');
     let $footer = $('<footer>').append($time).append($flag).append($like).append($likeCount);
-    let $header = $('<header>').append($image).append($name).append($handle);
+    let $header = $('<header>').append($image).append(Object.user.name, $handle);
 
     let $output = $('<article>').append($header).append($content).append($footer);
 

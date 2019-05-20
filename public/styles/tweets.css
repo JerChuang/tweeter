@@ -4,7 +4,7 @@
   margin-top: 20px; 
 }
 
-.tweets article {
+.tweets-article {
   height: 150px;
   position: relative;
   border: 1px solid rgb(104, 104, 104, 0.5);
@@ -12,38 +12,39 @@
   margin-bottom: 10px;
 }
 
-.tweets article:hover {
+.tweets-article:hover {
   border-color:rgb(104, 104, 104)
 }
 
-.tweets header {
+.tweets-article__header {
   opacity: 0.5;
   background-color: #eee;
   height: 60px;
   font-size: 150%;
 }
 
-.tweets article:hover header{
+.tweets-article:hover .tweets-article__header {
   opacity: 1;
 }
-
-.tweets .handle {
-  float: right;
-  margin-right: 5px;
-  font-size: 14px;
-  color: rgb(109, 109, 109);
-}
-.tweets .avatar {
+.tweets-article__avatar {
   float: left;
   width: 60px;
   height: 60px;
 }
 
-.tweets .content{
-  padding: 2px;
+.tweets-article__handle {
+  float: right;
+  margin-right: 5px;
+  font-size: 14px;
+  color: rgb(109, 109, 109);
 }
 
-.tweets footer {
+.tweets-article__content{
+  padding: 2px;
+  word-break: break-all;
+}
+
+.tweets-article__footer {
   border-top: 1px solid rgb(204, 204, 204);;
   position: absolute;
   width: 100%;
@@ -52,7 +53,7 @@
   align-items: center;
 }
 
-.tweets .like {
+.tweets-article__like {
   width: 15px;
   height: 15px;
   margin-left: 7px;
@@ -60,28 +61,28 @@
   visibility: hidden;
 }
 
-.tweets article:hover .like {
+.tweets-article:hover .tweets-article__like{
   visibility: visible;
 }
 
-.tweets footer span{
+.tweets-article__time{
   flex-grow: 1;
 }
 
-.tweets footer span.likeCount{
-  flex-grow: 0;
+.tweets-article__likeCount{
   visibility: hidden;
 }
 
-.tweets article:hover .likeCount {
+.tweets-article:hover .tweets-article__likeCount {
   visibility: visible;
 }
-.tweets .flag {
+
+.tweets-article__flag {
   width:  45px;
   height: 20px;
   visibility: hidden;
 }
 
-.tweets article:hover .flag {
+.tweets-article:hover .tweets-article__flag {
   visibility: visible;
 }

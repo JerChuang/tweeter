@@ -7,31 +7,34 @@
   padding: 5px 0;
 }
 
-.new-tweet h2 {
+.new-tweet__header {
   border-bottom: 1px solid black;
   margin: 5px 10px;
 }
 
-.new-tweet .counter {
+.new-tweet__form{
+  padding: 10px;
+}
+
+.new-tweet__counter {
   margin: 5px 0;
   float: right;
 }
 
-.new-tweet input {
+.new-tweet__input {
   margin: 5px 0;
   margin-right: 5px;
   float: left;
 }
 
-.new-tweet textarea {
+.new-tweet__textarea {
   float:left;
   width: 366px;
   height: 80px;
+  resize: none;
+  word-break: break-all;
 }
-.new-tweet .error{
+.new-tweet__error{
   color: red;
 }
 
-.new-tweet form{
-  padding: 10px;
-}

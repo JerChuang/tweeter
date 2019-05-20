@@ -39,23 +39,23 @@ $(document).ready(function() {
 
   //function to assemble a tweet's html structure, calling getTimeSince for elapsed time
   function createTweetElement(Object){
-    let $image = $(`<img class='avatar' src=${Object.user.avatars.regular} /> `)
-    let $handle = $('<span>').addClass('handle').text(Object.user.handle);
-    let $content = $('<div>').addClass('content').text(Object.content.text);
+    let $avatar = $(`<img class='tweets-article__avatar' src=${Object.user.avatars.regular} /> `)
+    let $handle = $('<span>').addClass('tweets-article__handle').text(Object.user.handle);
+    let $content = $('<div>').addClass('tweets-article__content').text(Object.content.text);
     //image for like button is dependent on Object.liked
     let $like = $('');
     if (!Object.liked){
-      $like = $(`<img class='like' src='/images/heart.png' />`);
+      $like = $(`<img class='tweets-article__like' src='/images/heart.png' />`);
     } else if(Object.liked){
-      $like = $(`<img class='like' src='/images/redHeart.png' />`);
+      $like = $(`<img class='tweets-article__like' src='/images/redHeart.png' />`);
     }
-    let $flag = $(`<img class='flag' src='/images/flag.png' />`);
-    let $time = $('<span>').text(getTimeSince(Object.created_at));
-    let $likeCount = $('<span>').addClass('likeCount');
-    let $footer = $('<footer>').append($time).append($flag).append($like).append($likeCount);
-    let $header = $('<header>').append($image).append(Object.user.name, $handle);
+    let $flag = $(`<img class='tweets-article__flag' src='/images/flag.png' />`);
+    let $time = $('<span>').addClass('tweets-article__time').text(getTimeSince(Object.created_at));
+    let $likeCount = $('<span>').addClass('tweets-article__likeCount');
+    let $header = $('<header>').addClass('tweets-article__header').append($avatar).append(Object.user.name, $handle);
+    let $footer = $('<footer>').addClass('tweets-article__footer').append($time).append($flag).append($like).append($likeCount);
 
-    let $output = $('<article>').append($header).append($content).append($footer);
+    let $output = $('<article>').addClass('tweets-article').append($header).append($content).append($footer);
 
     let dataAttr = { //Object for data attribute 
       liked: Object.liked,
@@ -68,18 +68,18 @@ $(document).ready(function() {
   }
 
   //Posting tweet on submit
-  $('section.new-tweet form').on('submit', function(event){
+  $('.new-tweet__form').on('submit', function(event){
     event.preventDefault();
     let content = $(this).serialize();
     // Check for errors and display error messages for empty field or over char limit
-    let count = Number($('section.new-tweet span.counter').text());
+    let count = Number($('.new-tweet__counter').text());
     
-    $('.new-tweet span.error').slideUp(function(){   //Displaying error messages inside callback function for slideup to make sure animation finish before new animation starts.
+    $('.new-tweet__error').slideUp(function(){   //Displaying error messages inside callback function for slideup to make sure animation finish before new animation starts.
       if (!content.slice(5)){
-        $('.new-tweet span.error').slideDown().text('Please enter a message!')
+        $('.new-tweet__error').slideDown().text('Please enter a message!')
       }
       if ( count < 0) {
-        $('.new-tweet span.error').slideDown().text(`You've exceeded the limit of 140 characters`)
+        $('.new-tweet__error').slideDown().text(`You've exceeded the limit of 140 characters`)
       }  
     });
       

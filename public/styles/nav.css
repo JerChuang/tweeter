@@ -1,4 +1,4 @@
-#nav-bar{
+.nav-bar{
   position: fixed;
   display: flex;
   top: 0px;
@@ -11,18 +11,18 @@
   z-index: 1;
 }
 
-#nav-bar .logo {
+.nav-bar__logo {
   width: 80px;
   height: 80px;
 }
 
-#nav-bar .header {
+.nav-bar__header {
   margin-left: 10px;
   font-size: 2em;
   flex-grow: 1;
 }
 
-#nav-bar .compose {
+.nav-bar__compose {
   height: 60px;
   width: 100px;
   border: 1px solid black;
@@ -32,7 +32,7 @@
   background-color: #dcfffa;
 }
 
-#nav-bar .compose:hover {
+.nav-bar__compose:hover {
   color: black;
   background-color: white;
 }
